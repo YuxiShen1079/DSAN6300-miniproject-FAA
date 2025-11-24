@@ -1,5 +1,7 @@
 project:
   type: website
+  output-dir: docs
+
 jupyter: python3
 
 website:
@@ -23,6 +25,5 @@ format:
     smooth-scroll: true
     page-layout: article
     code-fold: true
-
 
 

@@ -1,0 +1,362 @@
+---
+title: "Mini Project Main Findings"
+author: Yuxi Shen
+jupyter: python3
+
+format:
+  html:
+    code-fold: true
+---
+
+# Overview
+
+This project presents a data-driven analysis of **593,842 U.S. domestic flights in December 2018**, using the FAA’s on-time performance dataset (`al_perf`). Each row in the dataset represents a single flight and includes detailed information on:
+
+- Airline identity  
+- Origin and destination airports  
+- Scheduled and actual departure and arrival times  
+- Delay minutes and delay categories  
+- Cancellation indicators and reasons  
+
+Using SQL—including joins and window functions—alongside Python visualizations, this report examines patterns in flight volume, delays, and cancellations. The goal of this Quarto page is to **tell a clear, cohesive story** about traveler behavior and operational performance during one of the busiest travel periods of the year.
+
+---
+
+# 1. When Are the Skies Busiest?
+
+## 1.1 Flight Volume by Day of the Week
+
+To identify weekly travel patterns, I ranked days of the week based on total flight volume.  
+A simple grouping query joined to the weekday lookup table reveals that:
+
+- **Sunday** had the highest number of flights  
+- **Monday** was the second busiest  
+- **Tuesday** had the fewest  
+
+These results align with typical holiday-season activity: weekend travel drives up Sunday flight counts, while business travel contributes to elevated Monday volume. The third-busiest day was **Saturday**, further reinforcing the strong weekend travel trend.
+
+> **Key Insight:** Flight demand is highly uneven across the week—**97,665 flights** occurred on Sunday compared with only **72,911 flights** on Tuesday.
+
+### Visualization
+
+```{python}
+import pandas as pd
+import numpy as np
+import seaborn as sns
+import matplotlib.pyplot as plt
+
+df = pd.read_csv("data/miniproject_task3_Yuxi_Shen_ys1079.csv")
+plt.bar(df["Day"], df["NumFlights"], align='center', alpha=0.7)
+plt.xlabel("Day")
+plt.ylabel('Number of Flights')
+plt.title('Daily U.S. Flight Volume — December 2018')
+
+# Display the chart
+plt.show()
+```
+
+---
+
+## 1.2 Daily Traffic Trend with a 3-Day Moving Average
+
+To understand short-term fluctuations, I computed a **3-day moving average** on the number of flights per day using a SQL window function.
+
+```{python}
+import pandas as pd
+
+df2 = pd.read_csv("data/miniproject_task7_Yuxi_Shen_ys1079.csv")
+df2
+```
+
+This result reveals:
+
+- The daily flight activity in December 2018 shows **clear variation across the month**, with flight volume rising and falling in noticeable cycles. Early December begins with moderate traffic, followed by a **consistent upward trend leading into the holiday period**, where flight counts peak around **December 20–23**. This aligns with pre-Christmas travel surges. After the 24th, flight volume **declines sharply**, reflecting reduced travel on Christmas Day. Traffic increases again slightly after December 26 as post-holiday travel resumes.  
+
+- These patterns reveal how strongly flight volume correlates with holiday travel behavior. Understanding these fluctuations is essential because high-volume days tend to place more pressure on airports and airlines, increasing the likelihood of delays, congestion, and operational disruptions.
+
+> **Why this matters:** Daily traffic volume is closely tied to operational delays — congestion increases the likelihood of late departures and missed connections.
+
+### Visualization
+
+- Line chart showing:
+  - Raw flight counts by day  
+  - 3-day moving average overlay
+  - weekly fluctuation of number of flights  
+
+```{python}
+import pandas as pd
+import matplotlib.pyplot as plt
+
+df2 = pd.read_csv("./data/miniproject_task7_Yuxi_Shen_ys1079.csv")
+
+# Convert date column to datetime
+df2['Flightdate'] = pd.to_datetime(df2['Flightdate'])
+
+# Raw flights per day
+plt.plot(df2['Flightdate'], df2['num_flights'], label="Daily Flights", linewidth=2)
+
+# 3-day moving average
+plt.plot(df2['Flightdate'], df2['avg_num_flights_3day'], 
+         label="3-Day Moving Average", linewidth=2.5)
+
+plt.title("Daily Flights and 3-Day Moving Average — December 2018", fontsize=16)
+plt.xlabel("Date", fontsize=12)
+plt.ylabel("Number of Flights", fontsize=12)
+plt.grid(alpha=0.3)
+plt.legend()
+plt.tight_layout()
+plt.show()
+```
+
+
+---
+
+# 2. How Bad Are Delays?
+
+## 2.1 Maximum Departure Delay by Airline
+
+I computed the **maximal departure delay** (in minutes) for each airline.
+
+- The worst delay observed was for **SkyWest Airlines Inc.**, with a flight departing **2098** late.
+- The smallest maximum delay belonged to **Alaska Airlines Inc.**.
+
+Extreme delays may be driven by severe weather or operational disruptions, but they highlight worst-case passenger experiences.
+
+### Visualization
+
+- Bar chart of **maximum delays per airline**, ordered ascending.
+```{python}
+import pandas as pd
+import numpy as np
+import seaborn as sns
+import matplotlib.pyplot as plt
+
+df = pd.read_csv("data/miniproject_task1_Yuxi_Shen_ys1079.csv")
+df["AirlineName"] = df["AirlineName"].str.split(":").str[0]
+plt.bar(df["AirlineName"], df["MaxDepDelayMinutes"], align='center', alpha=0.7)
+plt.xlabel("Airline Name")
+plt.xticks(rotation=30, size=8)
+plt.ylabel('Time Length of Maximum Departure Delay (minutes)')
+plt.title('Maximum Delays per Airline')
+
+# Display the chart
+plt.show()
+```
+
+---
+
+## 2.2 Early Departures (Negative Delays)
+
+Some airlines operate flights that leave earlier than scheduled.  
+By examining negative `DepDelay` values:
+
+- The biggest early departure was **72 minutes early** by **United AirLines Inc.**.
+ 
+```{python}
+import pandas as pd
+import numpy as np
+import seaborn as sns
+import matplotlib.pyplot as plt
+
+df = pd.read_csv("data/miniproject_task2_Yuxi_Shen_ys1079.csv")
+df["AirlineName"] = df["AirlineName"].str.split(":").str[0]
+plt.bar(df["AirlineName"], df["MaxEarlyDepartureMin"], align='center', alpha=0.7)
+plt.xlabel("Airline Name")
+plt.xticks(rotation=30, size=8)
+plt.ylabel('Time Length of Maximum Early Departure (minutes)')
+plt.title('Maximum Early Departure per Airline')
+
+# Display the chart
+plt.show()
+```
+
+---
+
+## 2.3 Which Airports Experience the Worst Delays?
+
+Using `DepDelayMinutes`—which assigns early departures a delay of zero—I calculated the **average departure delay for each origin airport**. This measure highlights airports where operational congestion, scheduling inefficiency, or weather-related factors contribute to slower throughput.
+
+- The airport with the **highest average delay** was **Liberal, KS: Liberal Mid-America Regional**, with an average delay of **63.82 minutes**.
+
+This result suggests that even smaller regional airports can become significant delay points, depending on local conditions and airline routing patterns.
+
+---
+
+## 2.4 For Each Airline, Which Airport Is Its Biggest Delay Problem?
+
+To better understand how operational performance varies by airline and location, I used a window function to identify, for **each airline**, the **airport where it experiences its highest average departure delay**.
+
+A few illustrative examples include:
+
+- **Delta Air Lines Inc. (DL)** faces its longest delays at **Kalispell, MT: Glacier Park International**, averaging **60.12 minutes**.  
+- **ExpressJet Airlines LLC (EV)** experiences its worst delays at **Detroit, MI: Detroit Metro Wayne County**, with an exceptionally high average delay of **167 minutes**.  
+- **JetBlue Airways (B6)** and **Frontier Airlines (F9)** both encounter their highest delays at **Dallas/Fort Worth, TX: Dallas/Fort Worth International**, averaging approximately **50 minutes**.
+
+These patterns reveal that **delay hotspots are airline-specific**. An airport that is highly problematic for one carrier may operate efficiently for another, underscoring the complex interactions between airline scheduling, airport capacity, and regional conditions.
+
+> **Key Insight:** Delay challenges are not uniform. Understanding the airline–airport combinations that generate the greatest delays is essential for targeted operational improvements.
+
+### Visualization
+
+- Grouped bar chart or table showing:
+  - Airline  
+  - Worst-performing airport  
+  - Average departure delay  
+
+```{python}
+import pandas as pd
+import numpy as np
+import seaborn as sns
+import matplotlib.pyplot as plt
+
+df = pd.read_csv("data/miniproject_task5_Yuxi_Shen_ys1079.csv")
+df["airline_name"] = df["airline_name"].astype(str).str.split(":").str[0]
+df = df.sort_values("avg_dep_delay", ascending=True)
+plt.figure(figsize=(10, 6))
+sns.barplot(
+data=df,
+x="avg_dep_delay",
+y="airline_name",
+hue="airport_name", # color by airport
+dodge=False # one bar per airline
+)
+plt.xlabel("Average Departure Delay (minutes)")
+plt.ylabel("Airline")
+plt.title("Worst-Origin Airport for Each Airline (Average Departure Delay)")
+plt.grid(axis="x", alpha=0.3)
+plt.legend(title="Airport", bbox_to_anchor=(1.05, 1), loc="upper left")
+plt.tight_layout()
+plt.show()
+
+```
+
+--- 
+
+# 3. Why Do Flights Get Cancelled?
+
+## 3.1 Do Cancellations Occur in December 2018?
+
+Yes.  
+Across all flights in December 2018, the dataset contains **6,752 cancelled flights**, indicating that cancellations were a non-negligible operational issue during this month.
+
+---
+
+## 3.2 Most Frequent Cancellation Reasons by Airport
+
+To understand why cancellations occur, I identified the **most common cancellation reason** at each departure airport using a window function joined with the cancellation-reason lookup table.
+
+Typical cancellation categories include:
+
+- **Weather (A)** — conditions such as snow, thunderstorms, or low visibility  
+
+```{python}
+import pandas as pd
+
+df2 = pd.read_csv("data/miniproject_task6b_Yuxi_Shen_ys1079.csv")
+df2[df2["Reason"] == "Weather"].head(10)
+```
+
+- **Carrier (B)** — airline-related operational issues, staffing shortages, or maintenance  
+
+```{python}
+import pandas as pd
+
+df2 = pd.read_csv("data/miniproject_task6b_Yuxi_Shen_ys1079.csv")
+df2[df2["Reason"] == "Carrier"].head(10)
+```
+
+- **National Air System (C)** — air-traffic control, routing restrictions, or system capacity  
+
+
+```{python}
+import pandas as pd
+
+df2 = pd.read_csv("data/miniproject_task6b_Yuxi_Shen_ys1079.csv")
+df2[df2["Reason"] == "National Air System"].head(10)
+```
+
+
+- **Security (D)** — security-related disruptions or alerts  
+
+  -- my dataset does not contain flighted cancelled due to security reasons. 
+
+Across the airports in this dataset, the **dominant cancellation reason was Carrier-related issues**. Every airport for which cancellations were recorded listed “Carrier” as its most frequent cancellation category.  
+
+The highest counts occurred at:
+
+- **Phoenix Sky Harbor International** — 51 cancellations  
+- **Burbank Bob Hope Airport** — 34 cancellations  
+- **San Jose Mineta International Airport** — 30 cancellations  
+
+These patterns suggest that, during December 2018, **airline-level operational disruptions**—rather than severe weather or national-system constraints—were the primary drivers of cancelled flights. This aligns with December’s heavy travel season, where tight schedules and high aircraft utilization can amplify delays and operational failures.
+
+> **Key Insight:** Cancellation patterns vary substantially by location, but in December 2018, the overwhelming majority of cancellations were due to **Carrier-related factors**, highlighting internal airline operational pressures rather than external environmental conditions.
+
+### Visualization
+
+A horizontal bar chart shows, for each airport with cancellations:
+
+- Airport name  
+- Most frequent cancellation reason  
+- Number of cancellations  
+
+```{python}
+import pandas as pd
+import seaborn as sns
+import matplotlib.pyplot as plt
+
+# Load Task 6b results
+df = pd.read_csv("data/miniproject_task6b_Yuxi_Shen_ys1079.csv")
+
+# Sort by number of cancellations (descending)
+df = df.sort_values("num_cancellations", ascending=False).head(20)
+
+sns.barplot(
+    data=df,
+    y="airport_name",
+    x="num_cancellations",
+    hue="Reason",
+    dodge=False, 
+)
+
+plt.xlabel("Number of Cancellations")
+plt.ylabel("Airport")
+plt.title("Most Frequent Cancellation Reason per Airport — December 2018")
+plt.legend(title="Reason", loc="lower right")
+plt.tight_layout()
+plt.grid(axis="x", alpha=0.3)
+
+plt.show()
+```
+
+---
+
+# 4. Final Takeaways
+
+From this analysis of December 2018 flights:
+
+- **Busiest days** show clear traffic concentration, increasing operational pressure.  
+- **Certain airlines** and **airports** consistently face higher delays than others.  
+- **Delay patterns depend on airline–airport combinations**, not just one or the other.  
+- **Cancellations** are driven by a mixture of weather and operational issues, varying significantly by airport.
+
+These insights can help:
+
+- Travelers make more informed flight choices  
+- Airlines and airports identify operational bottlenecks  
+- Analysts and policymakers better understand seasonal flight patterns  
+
+---
+
+# 5. Methods & Reproducibility
+
+All results were generated using:
+
+- MySQL queries (aggregation, grouping, window functions)  
+  - please find my sql script in the root directory as Miniproject_YuxiShen_ys1079.sql
+- Visualization tools embedded in this Quarto project  
+- FAA on-time performance data for **December 2018**  
+  - filtered data answering required question are stored in the data folder.
+  - orginal data from December 2018 is stored as al_perf.csv inside the data folder.
+
+The full code and SQL are available in this repository for reproducibility.

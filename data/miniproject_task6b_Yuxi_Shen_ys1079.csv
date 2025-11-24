@@ -1,0 +1,281 @@
+airport_name,Reason,num_cancellations
+"Charlotte, NC: Charlotte Douglas International",Weather,766
+"Dallas/Fort Worth, TX: Dallas/Fort Worth International",Weather,359
+"Chicago, IL: Chicago O'Hare International",Weather,136
+"Raleigh/Durham, NC: Raleigh-Durham International",Weather,129
+"Houston, TX: George Bush Intercontinental/Houston",Weather,100
+"San Francisco, CA: San Francisco International","National Air System",100
+"Atlanta, GA: Hartsfield-Jackson Atlanta International",Weather,79
+"Washington, DC: Ronald Reagan Washington National",Weather,68
+"Dallas, TX: Dallas Love Field",Weather,64
+"Denver, CO: Denver International",Weather,63
+"Richmond, VA: Richmond International",Weather,62
+"Newark, NJ: Newark Liberty International","National Air System",55
+"Los Angeles, CA: Los Angeles International","National Air System",54
+"Aspen, CO: Aspen Pitkin County Sardy Field",Weather,51
+"Phoenix, AZ: Phoenix Sky Harbor International",Carrier,51
+"Chicago, IL: Chicago Midway International",Weather,49
+"New York, NY: LaGuardia",Weather,47
+"Greer, SC: Greenville-Spartanburg International",Weather,43
+"Albuquerque, NM: Albuquerque International Sunport",Weather,41
+"Orlando, FL: Orlando International",Weather,41
+"Minneapolis, MN: Minneapolis-St Paul International",Weather,39
+"San Diego, CA: San Diego International","National Air System",36
+"Burbank, CA: Bob Hope",Carrier,34
+"Greensboro/High Point, NC: Piedmont Triad International",Weather,34
+"Asheville, NC: Asheville Regional",Weather,33
+"Philadelphia, PA: Philadelphia International",Weather,32
+"Washington, DC: Washington Dulles International",Weather,32
+"San Jose, CA: Norman Y. Mineta San Jose International",Carrier,30
+"Detroit, MI: Detroit Metro Wayne County",Weather,29
+"Houston, TX: William P Hobby",Carrier,29
+"Miami, FL: Miami International",Weather,29
+"New York, NY: John F. Kennedy International","National Air System",29
+"Baltimore, MD: Baltimore/Washington International Thurgood Marshall",Weather,28
+"Las Vegas, NV: McCarran International",Carrier,28
+"Boston, MA: Logan International",Weather,26
+"Fort Lauderdale, FL: Fort Lauderdale-Hollywood International",Weather,26
+"Tampa, FL: Tampa International",Weather,26
+"Knoxville, TN: McGhee Tyson",Weather,25
+"St. Louis, MO: St Louis Lambert International",Weather,25
+"Sun Valley/Hailey/Ketchum, ID: Friedman Memorial",Carrier,25
+"Austin, TX: Austin - Bergstrom International",Weather,23
+"Oakland, CA: Metropolitan Oakland International",Carrier,22
+"Fargo, ND: Hector International",Weather,21
+"Baton Rouge, LA: Baton Rouge Metropolitan/Ryan Field",Carrier,20
+"Nashville, TN: Nashville International",Weather,20
+"Cleveland, OH: Cleveland-Hopkins International",Carrier,19
+"Grand Rapids, MI: Gerald R. Ford International",Weather,19
+"Lafayette, LA: Lafayette Regional Paul Fournet Field",Weather,19
+"New Orleans, LA: Louis Armstrong New Orleans International",Weather,19
+"Charlottesville, VA: Charlottesville Albemarle",Weather,18
+"Indianapolis, IN: Indianapolis International",Weather,18
+"Louisville, KY: Louisville Muhammad Ali International",Weather,17
+"San Antonio, TX: San Antonio International",Weather,17
+"Eagle, CO: Eagle County Regional",Weather,16
+"Pittsburgh, PA: Pittsburgh International",Weather,16
+"Portland, OR: Portland International",Carrier,16
+"Columbus, OH: John Glenn Columbus International",Weather,15
+"Jacksonville, FL: Jacksonville International",Weather,15
+"Lubbock, TX: Lubbock Preston Smith International",Weather,15
+"Oklahoma City, OK: Will Rogers World",Weather,15
+"Savannah, GA: Savannah/Hilton Head International",Weather,15
+"Charleston, SC: Charleston AFB/International",Weather,14
+"Memphis, TN: Memphis International",Weather,14
+"Norfolk, VA: Norfolk International",Weather,14
+"Salt Lake City, UT: Salt Lake City International",Weather,14
+"Santa Ana, CA: John Wayne Airport-Orange County",Carrier,14
+"Birmingham, AL: Birmingham-Shuttlesworth International",Carrier,13
+"Cincinnati, OH: Cincinnati/Northern Kentucky International",Weather,13
+"Kansas City, MO: Kansas City International",Carrier,13
+"Myrtle Beach, SC: Myrtle Beach International",Weather,13
+"Sacramento, CA: Sacramento International",Carrier,13
+"Sioux Falls, SD: Joe Foss Field",Weather,13
+"Hilton Head, SC: Hilton Head Airport",Weather,12
+"Huntsville, AL: Huntsville International-Carl T Jones Field",Weather,12
+"Milwaukee, WI: General Mitchell International",Carrier,12
+"Rapid City, SD: Rapid City Regional",Weather,12
+"Seattle, WA: Seattle/Tacoma International",Carrier,12
+"White Plains, NY: Westchester County",Weather,12
+"Columbia, SC: Columbia Metropolitan",Weather,11
+"Marquette, MI: Sawyer International",Weather,11
+"Mobile, AL: Mobile Regional",Weather,11
+"Pensacola, FL: Pensacola International",Weather,11
+"Dayton, OH: James M Cox/Dayton International",Weather,10
+"Fayetteville, NC: Fayetteville Regional/Grannis Field",Weather,10
+"Harrisburg, PA: Harrisburg International",Weather,10
+"Jackson/Vicksburg, MS: Jackson Medgar Wiley Evers International",Weather,10
+"Panama City, FL: Northwest Florida Beaches International",Carrier,10
+"Sanford, FL: Orlando Sanford International",Weather,10
+"Shreveport, LA: Shreveport Regional",Weather,10
+"Amarillo, TX: Rick Husband Amarillo International",Weather,9
+"Hartford, CT: Bradley International",Weather,9
+"Lexington, KY: Blue Grass",Weather,9
+"Little Rock, AR: Bill and Hillary Clinton Nat Adams Field",Weather,9
+"Medford, OR: Rogue Valley International - Medford",Weather,9
+"Midland/Odessa, TX: Midland International Air and Space Port",Weather,9
+"Omaha, NE: Eppley Airfield",Carrier,9
+"South Bend, IN: South Bend International",Carrier,9
+"Wilmington, NC: Wilmington International",Weather,9
+"Akron, OH: Akron-Canton Regional",Weather,8
+"Albany, NY: Albany International",Weather,8
+"Charleston/Dunbar, WV: Yeager",Weather,8
+"Chattanooga, TN: Lovell Field",Weather,8
+"Daytona Beach, FL: Daytona Beach International",Weather,8
+"El Paso, TX: El Paso International",Weather,8
+"Flagstaff, AZ: Flagstaff Pulliam",Weather,8
+"Fort Myers, FL: Southwest Florida International",Weather,8
+"Garden City, KS: Garden City Regional",Weather,8
+"Minot, ND: Minot International",Weather,8
+"Providence, RI: Theodore Francis Green State",Weather,8
+"Rochester, NY: Greater Rochester International",Weather,8
+"Santa Fe, NM: Santa Fe Municipal",Weather,8
+"Tulsa, OK: Tulsa International",Weather,8
+"Valparaiso, FL: Eglin AFB Destin Fort Walton Beach",Weather,8
+"Anchorage, AK: Ted Stevens Anchorage International",Carrier,7
+"Augusta, GA: Augusta Regional at Bush Field",Weather,7
+"Gainesville, FL: Gainesville Regional",Weather,7
+"Gulfport/Biloxi, MS: Gulfport-Biloxi International",Weather,7
+"Jacksonville/Camp Lejeune, NC: Albert J Ellis",Weather,7
+"Juneau, AK: Juneau International",Weather,7
+"Mission/McAllen/Edinburg, TX: McAllen Miller International",Carrier,7
+"New Bern/Morehead/Beaufort, NC: Coastal Carolina Regional",Weather,7
+"Portland, ME: Portland International Jetport",Weather,7
+"Reno, NV: Reno/Tahoe International",Carrier,7
+"Springfield, MO: Springfield-Branson National",Weather,7
+"St. Petersburg, FL: St Pete Clearwater International",Weather,7
+"Tucson, AZ: Tucson International",Weather,7
+"West Palm Beach/Palm Beach, FL: Palm Beach International",Weather,7
+"Buffalo, NY: Buffalo Niagara International",Weather,6
+"Evansville, IN: Evansville Regional",Weather,6
+"Fayetteville, AR: Northwest Arkansas Regional",Carrier,6
+"Grand Forks, ND: Grand Forks International",Weather,6
+"Honolulu, HI: Daniel K Inouye International",Carrier,6
+"Jamestown, ND: Jamestown Regional",Weather,6
+"Kahului, HI: Kahului Airport",Carrier,6
+"Killeen, TX: Robert Gray AAF","National Air System",6
+"Madison, WI: Dane County Regional-Truax Field",Weather,6
+"Peoria, IL: General Downing - Peoria International",Weather,6
+"Roanoke, VA: Roanoke Blacksburg Regional Woodrum Field",Weather,6
+"Roswell, NM: Roswell International Air Center",Weather,6
+"Sarasota/Bradenton, FL: Sarasota/Bradenton International",Weather,6
+"Syracuse, NY: Syracuse Hancock International",Weather,6
+"Tallahassee, FL: Tallahassee International",Weather,6
+"Wichita, KS: Wichita Dwight D Eisenhower National",Weather,6
+"Allentown/Bethlehem/Easton, PA: Lehigh Valley International",Weather,5
+"Bloomington/Normal, IL: Central Il Regional Airport at Bloomington",Weather,5
+"Boise, ID: Boise Air Terminal",Weather,5
+"Brownsville, TX: Brownsville South Padre Island International",Weather,5
+"CONCORD, NC: Concord Padgett Regional",Weather,5
+"Colorado Springs, CO: City of Colorado Springs Municipal",Weather,5
+"Des Moines, IA: Des Moines International",Weather,5
+"Devils Lake, ND: Devils Lake Regional",Weather,5
+"Fairbanks, AK: Fairbanks International",Carrier,5
+"Fort Wayne, IN: Fort Wayne International",Weather,5
+"Manhattan/Ft. Riley, KS: Manhattan Regional",Carrier,5
+"Melbourne, FL: Melbourne International",Weather,5
+"Ontario, CA: Ontario International",Weather,5
+"Palm Springs, CA: Palm Springs International",Carrier,5
+"Quincy, IL: Quincy Regional-Baldwin Field",Weather,5
+"Rochester, MN: Rochester International",Weather,5
+"Saginaw/Bay City/Midland, MI: MBS International",Weather,5
+"Scranton/Wilkes-Barre, PA: Wilkes Barre Scranton International",Weather,5
+"Toledo, OH: Toledo Express",Weather,5
+"Bozeman, MT: Bozeman Yellowstone International",Weather,4
+"Burlington, VT: Burlington International",Weather,4
+"Cedar Rapids/Iowa City, IA: The Eastern Iowa",Weather,4
+"Champaign/Urbana, IL: University of Illinois/Willard",Carrier,4
+"Corpus Christi, TX: Corpus Christi International",Weather,4
+"Durango, CO: Durango La Plata County",Weather,4
+"Fresno, CA: Fresno Yosemite International",Weather,4
+"Hancock/Houghton, MI: Houghton County Memorial",Weather,4
+"Laredo, TX: Laredo International",Carrier,4
+"Lihue, HI: Lihue Airport",Carrier,4
+"Lynchburg, VA: Lynchburg Regional/Preston Glenn Field",Weather,4
+"Manchester, NH: Manchester-Boston Regional",Weather,4
+"New Haven, CT: Tweed New Haven",Weather,4
+"Nome, AK: Nome Airport",Weather,4
+"San Juan, PR: Luis Munoz Marin International",Weather,4
+"Aberdeen, SD: Aberdeen Regional",Weather,3
+"Arcata/Eureka, CA: California Redwood Coast Humboldt County",Weather,3
+"Bend/Redmond, OR: Roberts Field",Weather,3
+"College Station/Bryan, TX: Easterwood Field","National Air System",3
+"Columbia, MO: Columbia Regional",Weather,3
+"Flint, MI: Bishop International",Weather,3
+"Grand Island, NE: Central Nebraska Regional",Weather,3
+"Jackson, WY: Jackson Hole",Weather,3
+"Joplin, MO: Joplin Regional",Weather,3
+"Kalamazoo, MI: Kalamazoo/Battle Creek International",Weather,3
+"Ketchikan, AK: Ketchikan International",Weather,3
+"Kodiak, AK: Kodiak Airport",Weather,3
+"Lansing, MI: Capital Region International",Weather,3
+"Lewisburg, WV: Greenbrier Valley",Weather,3
+"Moab, UT: Canyonlands Field",Weather,3
+"Moline, IL: Quad City International",Weather,3
+"Monroe, LA: Monroe Regional",Carrier,3
+"Redding, CA: Redding Municipal","National Air System",3
+"San Luis Obispo, CA: San Luis County Regional",Weather,3
+"Santa Barbara, CA: Santa Barbara Municipal","National Air System",3
+"Sitka, AK: Sitka Rocky Gutierrez",Weather,3
+"Texarkana, AR: Texarkana Regional-Webb Field","National Air System",3
+"Waco, TX: Waco Regional","National Air System",3
+"Abilene, TX: Abilene Regional","National Air System",2
+"Alexandria, LA: Alexandria International","National Air System",2
+"Bakersfield, CA: Meadows Field",Weather,2
+"Bismarck/Mandan, ND: Bismarck Municipal",Weather,2
+"Brainerd, MN: Brainerd Lakes Regional",Weather,2
+"Columbus, GA: Columbus Airport",Weather,2
+"Cordova, AK: Merle K Mudhole Smith",Weather,2
+"Dubuque, IA: Dubuque Regional",Carrier,2
+"Eugene, OR: Mahlon Sweet Field",Weather,2
+"Grand Junction, CO: Grand Junction Regional",Carrier,2
+"Green Bay, WI: Green Bay Austin Straubel International",Carrier,2
+"Gunnison, CO: Gunnison-Crested Butte Regional",Weather,2
+"Harlingen/San Benito, TX: Valley International",Weather,2
+"Hayden, CO: Yampa Valley",Weather,2
+"Islip, NY: Long Island MacArthur",Carrier,2
+"Key West, FL: Key West International",Weather,2
+"Kona, HI: Ellison Onizuka Kona International at Keahole",Carrier,2
+"Lake Charles, LA: Lake Charles Regional",Carrier,2
+"Lawton/Fort Sill, OK: Lawton-Fort Sill Regional",Weather,2
+"Meridian, MS: Key Field",Weather,2
+"Monterey, CA: Monterey Regional",Weather,2
+"Montgomery, AL: Montgomery Regional",Weather,2
+"Montrose/Delta, CO: Montrose Regional",Weather,2
+"Muskegon, MI: Muskegon County",Weather,2
+"Newport News/Williamsburg, VA: Newport News/Williamsburg International","National Air System",2
+"North Bend/Coos Bay, OR: Southwest Oregon Regional",Weather,2
+"North Platte, NE: North Platte Regional Airport Lee Bird Field",Weather,2
+"Pasco/Kennewick/Richland, WA: Tri Cities",Weather,2
+"Petersburg, AK: Petersburg James A Johnson",Weather,2
+"Phoenix, AZ: Phoenix - Mesa Gateway",Weather,2
+"San Angelo, TX: San Angelo Regional/Mathis Field",Weather,2
+"Santa Rosa, CA: Charles M. Schulz - Sonoma County",Weather,2
+"Spokane, WA: Spokane International",Carrier,2
+"Traverse City, MI: Cherry Capital",Weather,2
+"Tyler, TX: Tyler Pounds Regional","National Air System",2
+"Wichita Falls, TX: Sheppard AFB/Wichita Falls Municipal",Weather,2
+"Appleton, WI: Appleton International",Weather,1
+"Ashland, WV: Tri-State/Milton J. Ferguson Field","National Air System",1
+"Atlantic City, NJ: Atlantic City International",Weather,1
+"Bangor, ME: Bangor International",Carrier,1
+"Beaumont/Port Arthur, TX: Jack Brooks Regional","National Air System",1
+"Bristol/Johnson City/Kingsport, TN: Tri Cities",Carrier,1
+"Cape Girardeau, MO: Cape Girardeau Regional",Weather,1
+"Charlotte Amalie, VI: Cyril E King",Weather,1
+"Cody, WY: Yellowstone Regional",Weather,1
+"Columbus, MS: Golden Triangle Regional",Carrier,1
+"Deadhorse, AK: Deadhorse Airport",Carrier,1
+"Del Rio, TX: Del Rio International","National Air System",1
+"Duluth, MN: Duluth International",Weather,1
+"Elko, NV: Elko Regional",Weather,1
+"Elmira/Corning, NY: Elmira/Corning Regional",Weather,1
+"Erie, PA: Erie International/Tom Ridge Field",Weather,1
+"Fort Smith, AR: Fort Smith Regional",Weather,1
+"Gillette, WY: Gillette Campbell County",Weather,1
+"Hattiesburg/Laurel, MS: Hattiesburg-Laurel Regional",Weather,1
+"International Falls, MN: Falls International Einarson Field",Weather,1
+"Kotzebue, AK: Ralph Wien Memorial",Carrier,1
+"La Crosse, WI: La Crosse Regional",Weather,1
+"Laramie, WY: Laramie Regional",Weather,1
+"Liberal, KS: Liberal Mid-America Regional",Weather,1
+"Long Beach, CA: Long Beach Airport","National Air System",1
+"Longview, TX: East Texas Regional","National Air System",1
+"Mammoth Lakes, CA: Mammoth Lakes Airport",Weather,1
+"Mosinee, WI: Central Wisconsin",Weather,1
+"Niagara Falls, NY: Niagara Falls International",Carrier,1
+"Paducah, KY: Barkley Regional",Weather,1
+"Pellston, MI: Pellston Regional Airport of Emmet County",Weather,1
+"Prescott, AZ: Prescott Regional Ernest A Love Field",Weather,1
+"Pueblo, CO: Pueblo Memorial",Weather,1
+"Rhinelander, WI: Rhinelander/Oneida County",Weather,1
+"Sioux City, IA: Sioux Gateway Brig Gen Bud Day Field",Weather,1
+"Springfield, IL: Abraham Lincoln Capital","National Air System",1
+"St. George, UT: St George Regional",Weather,1
+"Staunton, VA: Shenandoah Valley Regional",Weather,1
+"Stockton, CA: Stockton Metropolitan",Weather,1
+"Trenton, NJ: Trenton Mercer",Carrier,1
+"Waterloo, IA: Waterloo Regional",Carrier,1
+"Watertown, NY: Watertown International",Weather,1
+"Wrangell, AK: Wrangell Airport",Weather,1
+"Yakutat, AK: Yakutat Airport",Carrier,1

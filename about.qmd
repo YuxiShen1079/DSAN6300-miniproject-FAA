@@ -1,0 +1,111 @@
+---
+title: "About"
+author: Yuxi Shen 
+ID: ys1079
+---
+
+
+# About This Project
+
+## Project Context and Goals
+
+This mini-project is part of **DSAN 6300: Database Management and SQL**. The main goals are to:
+
+1. Gain experience working with a **real-world, large-scale dataset**.  
+2. Practice core database tasks:  
+   - exploring raw data,  
+   - designing a schema,  
+   - loading data into MySQL,  
+   - and analyzing it using SQL (including joins and window functions).  
+3. Work in the **AWS cloud environment** using **MySQL RDS**.  
+4. Learn how to **consult external technical resources** (documentation, glossaries, and online references) as needed.
+
+This project also integrates **data visualization** and **narrative communication** through a Quarto website, connecting SQL-based analysis with clear, interpretable graphics.
+
+---
+
+## Data Source: Airline On-Time Performance
+
+The dataset used in this project comes from the **Airline On-Time Statistics and Delay Causes** data published by the U.S. Department of Transportation’s Bureau of Transportation Statistics (BTS) via the TranStats “On-Time” database (Reporting Carrier On-Time Performance, 1987–present).:contentReference[oaicite:0]{index=0}  
+
+For this project, I focus on **U.S. domestic flights in December 2018**. Each record corresponds to a single flight and includes:
+
+- **Flight metadata**: year, month, day, carrier, flight number, tail number  
+- **Airport information**: origin and destination airport IDs and codes, city, state  
+- **Timing details**: scheduled and actual departure and arrival times  
+- **Performance measures**: departure and arrival delays, delay minutes, delay categories  
+- **Disruption indicators**: cancellation flag and reason, diversion information  
+
+These variables support detailed analyses of traffic patterns, delays, and cancellations.
+
+---
+
+## Star Schema Design
+
+The data for this project is organized in a **star schema**, a common modeling approach in data warehousing. In this schema, a central **fact table** is linked to multiple **dimension tables** that provide descriptive attributes.
+
+### Fact Table: `al_perf`
+
+The core fact table (`al_perf`) stores flight-level information, including:
+
+- Date-related fields: `Year`, `Month`, `DayOfMonth`, `FlightDate`  
+- Airline keys and codes: `Reporting_Airline`, `DOT_ID_Reporting_Airline`, `IATA_CODE_Reporting_Airline`  
+- Origin and destination airport IDs: `OriginAirportID`, `DestAirportID`  
+- Timing and delay fields: `DepTime`, `ArrTime`, `DepDelay`, `DepDelayMinutes`, `ArrDelay`, `ArrDelayMinutes`  
+- Disruption fields: `Cancelled`, `CancellationCode`, `Diverted`  
+- Additional metrics: distance, flight time, various delay categories (carrier, weather, NAS, security, late aircraft)
+
+This table is the primary source for all quantitative analyses in the project.
+
+### Dimension Tables
+
+Several dimension tables provide descriptive context for keys stored in the fact table:
+
+- **`L_AIRLINE_ID`**: maps `DOT_ID_Reporting_Airline` to airline names.  
+- **`L_AIRPORT`**: maps airport codes (`Origin`, `Dest`) to airport names.  
+- **`L_AIRPORT_ID`**: maps numeric airport IDs (`OriginAirportID`, `DestAirportID`) to airport names.  
+- **`L_DISTANCE_GROUP_250`**: categorizes `DistanceGroup` into 250-mile distance bands.  
+- **`L_CANCELATION`**: maps `CancellationCode` to human-readable cancellation reasons (e.g., Weather, Carrier, NAS, Security).  
+- **`L_WEEKDAYS`**: maps numeric `DayOfWeek` codes to weekday names (e.g., 1 = Monday, 7 = Sunday).
+
+By joining the fact table to these dimension tables, the analysis can present results using **meaningful, human-readable labels** instead of numeric IDs or cryptic codes.
+
+#### SCHEMA AND TABLES
+![](./FAA_tables_diagram.png)
+---
+
+## Tools and Workflow
+
+The project workflow combines **database work in the cloud** with **local analysis and visualization**:
+
+- **Database Layer (AWS RDS + MySQL)**  
+  - Create the schema corresponding to the star model.  
+  - Load the fact and dimension tables (December 2018 slice + lookups).  
+  - Run SQL queries to explore flight volume, delays, cancellations, and airline–airport patterns.  
+
+- **Analysis & Visualization (Python + Quarto)**  
+  - Export query results as CSV files.  
+  - Use Python (pandas, matplotlib, seaborn) to build bar charts, line plots, and summary tables.  
+  - Render these analyses in a **Quarto website**, combining text, code, and figures into a cohesive narrative.
+
+---
+
+## Analytical Focus
+
+Within this structure, the project addresses questions such as:
+
+- **When are the skies busiest?**  
+  - Flight volume by day of the week  
+  - Daily trends with a 3-day moving average  
+
+- **How bad are delays, and where?**  
+  - Maximum and average departure delays by airline  
+  - Delay hotspots by origin airport  
+  - Airline-specific “worst airports” for departure delays  
+
+- **Why do flights get cancelled?**  
+  - Presence and magnitude of cancellations in December 2018  
+  - Most common cancellation reasons by airport  
+
+The results are presented on the main page of this site as a **data-driven story** that connects SQL-based summaries to real-world interpretations of airline operations and traveler experience.
+

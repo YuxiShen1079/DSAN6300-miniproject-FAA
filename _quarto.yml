@@ -1,0 +1,28 @@
+project:
+  type: website
+jupyter: python3
+
+website:
+  title: "YuxiShen_ys1079_DB_miniproject"
+  navbar:
+    left:
+      - href: index.qmd
+        text: Home
+      - about.qmd 
+  page-footer:
+    left: "DSAN 6300 Database Management & SQL"
+    right: "© 2025 Yuxi Shen(NETID: ys1079)"
+
+
+format:
+  html:
+    theme:
+      - cosmo
+    toc: true
+    toc-depth: 3
+    smooth-scroll: true
+    page-layout: article
+    code-fold: true
+
+
+

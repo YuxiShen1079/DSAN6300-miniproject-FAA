@@ -231,7 +231,6 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <li>Cancellation indicators and reasons</li>
 </ul>
 <p>Using SQL—including joins and window functions—alongside Python visualizations, this report examines patterns in flight volume, delays, and cancellations. The goal of this Quarto page is to <strong>tell a clear, cohesive story</strong> about traveler behavior and operational performance during one of the busiest travel periods of the year.</p>
-<hr>
 </section>
 <section id="when-are-the-skies-busiest" class="level1">
 <h1>1. When Are the Skies Busiest?</h1>
@@ -252,7 +251,7 @@ A simple grouping query joined to the weekday lookup table reveals that:</p>
 </blockquote>
 <section id="visualization" class="level3">
 <h3 class="anchored" data-anchor-id="visualization">Visualization</h3>
-<div id="c5db799d" class="cell" data-execution_count="1">
+<div id="09fde6eb" class="cell" data-execution_count="1">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
@@ -277,13 +276,12 @@ A simple grouping query joined to the weekday lookup table reveals that:</p>
 </div>
 </div>
 </div>
-<hr>
 </section>
 </section>
 <section id="daily-traffic-trend-with-a-3-day-moving-average" class="level2">
 <h2 class="anchored" data-anchor-id="daily-traffic-trend-with-a-3-day-moving-average">1.2 Daily Traffic Trend with a 3-Day Moving Average</h2>
 <p>To understand short-term fluctuations, I computed a <strong>3-day moving average</strong> on the number of flights per day using a SQL window function.</p>
-<div id="2584c30a" class="cell" data-execution_count="2">
+<div id="7927c589" class="cell" data-execution_count="2">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
@@ -291,7 +289,7 @@ A simple grouping query joined to the weekday lookup table reveals that:</p>
 <span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>df2 <span class="op">=</span> pd.read_csv(<span class="st">"data/miniproject_task7_Yuxi_Shen_ys1079.csv"</span>)</span>
 <span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>df2</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
-<div class="cell-output cell-output-display" data-execution_count="2">
+<div class="cell-output cell-output-display" data-execution_count="12">
 <div>
 
 
@@ -516,7 +514,7 @@ A simple grouping query joined to the weekday lookup table reveals that:</p>
 <li>weekly fluctuation of number of flights</li>
 </ul></li>
 </ul>
-<div id="f1aa536b" class="cell" data-execution_count="3">
+<div id="838455d7" class="cell" data-execution_count="3">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
@@ -537,20 +535,20 @@ A simple grouping query joined to the weekday lookup table reveals that:</p>
 <span id="cb3-16"><a href="#cb3-16" aria-hidden="true" tabindex="-1"></a>plt.title(<span class="st">"Daily Flights and 3-Day Moving Average — December 2018"</span>, fontsize<span class="op">=</span><span class="dv">16</span>)</span>
 <span id="cb3-17"><a href="#cb3-17" aria-hidden="true" tabindex="-1"></a>plt.xlabel(<span class="st">"Date"</span>, fontsize<span class="op">=</span><span class="dv">12</span>)</span>
 <span id="cb3-18"><a href="#cb3-18" aria-hidden="true" tabindex="-1"></a>plt.ylabel(<span class="st">"Number of Flights"</span>, fontsize<span class="op">=</span><span class="dv">12</span>)</span>
-<span id="cb3-19"><a href="#cb3-19" aria-hidden="true" tabindex="-1"></a>plt.grid(alpha<span class="op">=</span><span class="fl">0.3</span>)</span>
-<span id="cb3-20"><a href="#cb3-20" aria-hidden="true" tabindex="-1"></a>plt.legend()</span>
-<span id="cb3-21"><a href="#cb3-21" aria-hidden="true" tabindex="-1"></a>plt.tight_layout()</span>
-<span id="cb3-22"><a href="#cb3-22" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb3-19"><a href="#cb3-19" aria-hidden="true" tabindex="-1"></a>plt.xticks(rotation<span class="op">=</span><span class="dv">30</span>, size<span class="op">=</span><span class="dv">8</span>)</span>
+<span id="cb3-20"><a href="#cb3-20" aria-hidden="true" tabindex="-1"></a>plt.grid(alpha<span class="op">=</span><span class="fl">0.3</span>)</span>
+<span id="cb3-21"><a href="#cb3-21" aria-hidden="true" tabindex="-1"></a>plt.legend()</span>
+<span id="cb3-22"><a href="#cb3-22" aria-hidden="true" tabindex="-1"></a>plt.tight_layout()</span>
+<span id="cb3-23"><a href="#cb3-23" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output cell-output-display">
 <div>
 <figure class="figure">
-<p><img src="index_files/figure-html/cell-4-output-1.png" width="679" height="470" class="figure-img"></p>
+<p><img src="index_files/figure-html/cell-4-output-1.png" width="684" height="472" class="figure-img"></p>
 </figure>
 </div>
 </div>
 </div>
-<hr>
 </section>
 </section>
 </section>
@@ -561,15 +559,12 @@ A simple grouping query joined to the weekday lookup table reveals that:</p>
 <p>I computed the <strong>maximal departure delay</strong> (in minutes) for each airline.</p>
 <ul>
 <li>The worst delay observed was for <strong>SkyWest Airlines Inc.</strong>, with a flight departing <strong>2098</strong> late.</li>
-<li>The smallest maximum delay belonged to <strong>Alaska Airlines Inc.</strong>.</li>
+<li>The smallest maximum delay belonged to <strong>Alaska Airlines Inc.</strong></li>
 </ul>
 <p>Extreme delays may be driven by severe weather or operational disruptions, but they highlight worst-case passenger experiences.</p>
 <section id="visualization-2" class="level3">
 <h3 class="anchored" data-anchor-id="visualization-2">Visualization</h3>
-<ul>
-<li>Bar chart of <strong>maximum delays per airline</strong>, ordered ascending.</li>
-</ul>
-<div id="74932f8d" class="cell" data-execution_count="4">
+<div id="0cbc13f2" class="cell" data-execution_count="4">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
@@ -596,7 +591,7 @@ A simple grouping query joined to the weekday lookup table reveals that:</p>
 </div>
 </div>
 </div>
-<hr>
+<p><em>Notes. Bar chart of <strong>maximum delays per airline</strong>, ordered ascending.</em></p>
 </section>
 </section>
 <section id="early-departures-negative-delays" class="level2">
@@ -604,9 +599,9 @@ A simple grouping query joined to the weekday lookup table reveals that:</p>
 <p>Some airlines operate flights that leave earlier than scheduled.<br>
 By examining negative <code>DepDelay</code> values:</p>
 <ul>
-<li>The biggest early departure was <strong>72 minutes early</strong> by <strong>United AirLines Inc.</strong>.</li>
+<li>The biggest early departure was <strong>72 minutes early</strong> by <strong>United AirLines Inc.</strong></li>
 </ul>
-<div id="32bca308" class="cell" data-execution_count="5">
+<div id="a74d556f" class="cell" data-execution_count="5">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
@@ -633,27 +628,25 @@ By examining negative <code>DepDelay</code> values:</p>
 </div>
 </div>
 </div>
-<hr>
 </section>
 <section id="which-airports-experience-the-worst-delays" class="level2">
 <h2 class="anchored" data-anchor-id="which-airports-experience-the-worst-delays">2.3 Which Airports Experience the Worst Delays?</h2>
 <p>Using <code>DepDelayMinutes</code>—which assigns early departures a delay of zero—I calculated the <strong>average departure delay for each origin airport</strong>. This measure highlights airports where operational congestion, scheduling inefficiency, or weather-related factors contribute to slower throughput.</p>
 <ul>
-<li>The airport with the <strong>highest average delay</strong> was <strong>Liberal, KS: Liberal Mid-America Regional</strong>, with an average delay of <strong>63.82 minutes</strong>.</li>
+<li>The airport with the <strong>highest average delay</strong> was <strong>in Liberal, KS: Liberal Mid-America Regional Airport</strong>, with an average delay of <strong>63.82 minutes</strong>.</li>
 </ul>
 <p>This result suggests that even smaller regional airports can become significant delay points, depending on local conditions and airline routing patterns.</p>
-<hr>
 </section>
 <section id="for-each-airline-which-airport-is-its-biggest-delay-problem" class="level2">
 <h2 class="anchored" data-anchor-id="for-each-airline-which-airport-is-its-biggest-delay-problem">2.4 For Each Airline, Which Airport Is Its Biggest Delay Problem?</h2>
 <p>To better understand how operational performance varies by airline and location, I used a window function to identify, for <strong>each airline</strong>, the <strong>airport where it experiences its highest average departure delay</strong>.</p>
 <p>A few illustrative examples include:</p>
 <ul>
-<li><strong>Delta Air Lines Inc.&nbsp;(DL)</strong> faces its longest delays at <strong>Kalispell, MT: Glacier Park International</strong>, averaging <strong>60.12 minutes</strong>.<br>
+<li><strong>Delta Air Lines Inc.&nbsp;(DL)</strong> faces its longest delays at <strong>Kalispell, MT: Glacier Park International Airport</strong>, averaging <strong>60.12 minutes</strong>.<br>
 </li>
-<li><strong>ExpressJet Airlines LLC (EV)</strong> experiences its worst delays at <strong>Detroit, MI: Detroit Metro Wayne County</strong>, with an exceptionally high average delay of <strong>167 minutes</strong>.<br>
+<li><strong>ExpressJet Airlines LLC (EV)</strong> experiences its worst delays at <strong>Detroit, MI: Detroit Metro Wayne County Airport</strong>, with an exceptionally high average delay of <strong>167 minutes</strong>.<br>
 </li>
-<li><strong>JetBlue Airways (B6)</strong> and <strong>Frontier Airlines (F9)</strong> both encounter their highest delays at <strong>Dallas/Fort Worth, TX: Dallas/Fort Worth International</strong>, averaging approximately <strong>50 minutes</strong>.</li>
+<li><strong>JetBlue Airways (B6)</strong> and <strong>Frontier Airlines (F9)</strong> both encounter their highest delays at <strong>TX: Dallas/Fort Worth International Airport</strong>, averaging approximately <strong>50 minutes</strong>.</li>
 </ul>
 <p>These patterns reveal that <strong>delay hotspots are airline-specific</strong>. An airport that is highly problematic for one carrier may operate efficiently for another, underscoring the complex interactions between airline scheduling, airport capacity, and regional conditions.</p>
 <blockquote class="blockquote">
@@ -661,17 +654,7 @@ By examining negative <code>DepDelay</code> values:</p>
 </blockquote>
 <section id="visualization-3" class="level3">
 <h3 class="anchored" data-anchor-id="visualization-3">Visualization</h3>
-<ul>
-<li>Grouped bar chart or table showing:
-<ul>
-<li>Airline<br>
-</li>
-<li>Worst-performing airport<br>
-</li>
-<li>Average departure delay</li>
-</ul></li>
-</ul>
-<div id="0e06f36f" class="cell" data-execution_count="6">
+<div id="3250f54e" class="cell" data-execution_count="6">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
@@ -706,7 +689,7 @@ By examining negative <code>DepDelay</code> values:</p>
 </div>
 </div>
 </div>
-<hr>
+<p><em>Notes. Grouped bar chart showing Airline on y axis, color-coded by Worst-performing airport, and the lengths of bar represent Average departure delay</em></p>
 </section>
 </section>
 </section>
@@ -716,7 +699,6 @@ By examining negative <code>DepDelay</code> values:</p>
 <h2 class="anchored" data-anchor-id="do-cancellations-occur-in-december-2018">3.1 Do Cancellations Occur in December 2018?</h2>
 <p>Yes.<br>
 Across all flights in December 2018, the dataset contains <strong>6,752 cancelled flights</strong>, indicating that cancellations were a non-negligible operational issue during this month.</p>
-<hr>
 </section>
 <section id="most-frequent-cancellation-reasons-by-airport" class="level2">
 <h2 class="anchored" data-anchor-id="most-frequent-cancellation-reasons-by-airport">3.2 Most Frequent Cancellation Reasons by Airport</h2>
@@ -725,7 +707,7 @@ Across all flights in December 2018, the dataset contains <strong>6,752 cancelle
 <ul>
 <li><strong>Weather (A)</strong> — conditions such as snow, thunderstorms, or low visibility</li>
 </ul>
-<div id="b921d559" class="cell" data-execution_count="7">
+<div id="1f897ce7" class="cell" data-execution_count="7">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb7"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
@@ -733,7 +715,7 @@ Across all flights in December 2018, the dataset contains <strong>6,752 cancelle
 <span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>df2 <span class="op">=</span> pd.read_csv(<span class="st">"data/miniproject_task6b_Yuxi_Shen_ys1079.csv"</span>)</span>
 <span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a>df2[df2[<span class="st">"Reason"</span>] <span class="op">==</span> <span class="st">"Weather"</span>].head(<span class="dv">10</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
-<div class="cell-output cell-output-display" data-execution_count="7">
+<div class="cell-output cell-output-display" data-execution_count="17">
 <div>
 
 
@@ -816,7 +798,7 @@ Across all flights in December 2018, the dataset contains <strong>6,752 cancelle
 <ul>
 <li><strong>Carrier (B)</strong> — airline-related operational issues, staffing shortages, or maintenance</li>
 </ul>
-<div id="7046d593" class="cell" data-execution_count="8">
+<div id="ce0aa0ad" class="cell" data-execution_count="8">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb8"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
@@ -824,7 +806,7 @@ Across all flights in December 2018, the dataset contains <strong>6,752 cancelle
 <span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a>df2 <span class="op">=</span> pd.read_csv(<span class="st">"data/miniproject_task6b_Yuxi_Shen_ys1079.csv"</span>)</span>
 <span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a>df2[df2[<span class="st">"Reason"</span>] <span class="op">==</span> <span class="st">"Carrier"</span>].head(<span class="dv">10</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
-<div class="cell-output cell-output-display" data-execution_count="8">
+<div class="cell-output cell-output-display" data-execution_count="18">
 <div>
 
 
@@ -907,7 +889,7 @@ Across all flights in December 2018, the dataset contains <strong>6,752 cancelle
 <ul>
 <li><strong>National Air System (C)</strong> — air-traffic control, routing restrictions, or system capacity</li>
 </ul>
-<div id="50ae1910" class="cell" data-execution_count="9">
+<div id="945c7d31" class="cell" data-execution_count="9">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb9"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
@@ -915,7 +897,7 @@ Across all flights in December 2018, the dataset contains <strong>6,752 cancelle
 <span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a>df2 <span class="op">=</span> pd.read_csv(<span class="st">"data/miniproject_task6b_Yuxi_Shen_ys1079.csv"</span>)</span>
 <span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a>df2[df2[<span class="st">"Reason"</span>] <span class="op">==</span> <span class="st">"National Air System"</span>].head(<span class="dv">10</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
-<div class="cell-output cell-output-display" data-execution_count="9">
+<div class="cell-output cell-output-display" data-execution_count="19">
 <div>
 
 
@@ -1022,7 +1004,7 @@ Across all flights in December 2018, the dataset contains <strong>6,752 cancelle
 </li>
 <li>Number of cancellations</li>
 </ul>
-<div id="b7bbe796" class="cell" data-execution_count="10">
+<div id="705d3938" class="cell" data-execution_count="10">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb10"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
@@ -1060,7 +1042,6 @@ Across all flights in December 2018, the dataset contains <strong>6,752 cancelle
 </div>
 </div>
 </div>
-<hr>
 </section>
 </section>
 </section>
@@ -1084,7 +1065,6 @@ Across all flights in December 2018, the dataset contains <strong>6,752 cancelle
 </li>
 <li>Analysts and policymakers better understand seasonal flight patterns</li>
 </ul>
-<hr>
 </section>
 <section id="methods-reproducibility" class="level1">
 <h1>5. Methods &amp; Reproducibility</h1>

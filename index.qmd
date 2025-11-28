@@ -20,7 +20,7 @@ This project presents a data-driven analysis of **593,842 U.S. domestic flights 
 
 Using SQL—including joins and window functions—alongside Python visualizations, this report examines patterns in flight volume, delays, and cancellations. The goal of this Quarto page is to **tell a clear, cohesive story** about traveler behavior and operational performance during one of the busiest travel periods of the year.
 
----
+ 
 
 # 1. When Are the Skies Busiest?
 
@@ -55,7 +55,7 @@ plt.title('Daily U.S. Flight Volume — December 2018')
 plt.show()
 ```
 
----
+ 
 
 ## 1.2 Daily Traffic Trend with a 3-Day Moving Average
 
@@ -102,6 +102,7 @@ plt.plot(df2['Flightdate'], df2['avg_num_flights_3day'],
 plt.title("Daily Flights and 3-Day Moving Average — December 2018", fontsize=16)
 plt.xlabel("Date", fontsize=12)
 plt.ylabel("Number of Flights", fontsize=12)
+plt.xticks(rotation=30, size=8)
 plt.grid(alpha=0.3)
 plt.legend()
 plt.tight_layout()
@@ -109,7 +110,7 @@ plt.show()
 ```
 
 
----
+ 
 
 # 2. How Bad Are Delays?
 
@@ -118,13 +119,12 @@ plt.show()
 I computed the **maximal departure delay** (in minutes) for each airline.
 
 - The worst delay observed was for **SkyWest Airlines Inc.**, with a flight departing **2098** late.
-- The smallest maximum delay belonged to **Alaska Airlines Inc.**.
+- The smallest maximum delay belonged to **Alaska Airlines Inc.**
 
 Extreme delays may be driven by severe weather or operational disruptions, but they highlight worst-case passenger experiences.
 
 ### Visualization
 
-- Bar chart of **maximum delays per airline**, ordered ascending.
 ```{python}
 import pandas as pd
 import numpy as np
@@ -143,14 +143,16 @@ plt.title('Maximum Delays per Airline')
 plt.show()
 ```
 
----
+*Notes. Bar chart of **maximum delays per airline**, ordered ascending.*
+
+ 
 
 ## 2.2 Early Departures (Negative Delays)
 
 Some airlines operate flights that leave earlier than scheduled.  
 By examining negative `DepDelay` values:
 
-- The biggest early departure was **72 minutes early** by **United AirLines Inc.**.
+- The biggest early departure was **72 minutes early** by **United AirLines Inc.**
  
 ```{python}
 import pandas as pd
@@ -170,17 +172,15 @@ plt.title('Maximum Early Departure per Airline')
 plt.show()
 ```
 
----
 
 ## 2.3 Which Airports Experience the Worst Delays?
 
 Using `DepDelayMinutes`—which assigns early departures a delay of zero—I calculated the **average departure delay for each origin airport**. This measure highlights airports where operational congestion, scheduling inefficiency, or weather-related factors contribute to slower throughput.
 
-- The airport with the **highest average delay** was **Liberal, KS: Liberal Mid-America Regional**, with an average delay of **63.82 minutes**.
+- The airport with the **highest average delay** was **in Liberal, KS: Liberal Mid-America Regional Airport**, with an average delay of **63.82 minutes**.
 
 This result suggests that even smaller regional airports can become significant delay points, depending on local conditions and airline routing patterns.
 
----
 
 ## 2.4 For Each Airline, Which Airport Is Its Biggest Delay Problem?
 
@@ -188,20 +188,15 @@ To better understand how operational performance varies by airline and location,
 
 A few illustrative examples include:
 
-- **Delta Air Lines Inc. (DL)** faces its longest delays at **Kalispell, MT: Glacier Park International**, averaging **60.12 minutes**.  
-- **ExpressJet Airlines LLC (EV)** experiences its worst delays at **Detroit, MI: Detroit Metro Wayne County**, with an exceptionally high average delay of **167 minutes**.  
-- **JetBlue Airways (B6)** and **Frontier Airlines (F9)** both encounter their highest delays at **Dallas/Fort Worth, TX: Dallas/Fort Worth International**, averaging approximately **50 minutes**.
+- **Delta Air Lines Inc. (DL)** faces its longest delays at **Kalispell, MT: Glacier Park International Airport**, averaging **60.12 minutes**.  
+- **ExpressJet Airlines LLC (EV)** experiences its worst delays at **Detroit, MI: Detroit Metro Wayne County Airport**, with an exceptionally high average delay of **167 minutes**.  
+- **JetBlue Airways (B6)** and **Frontier Airlines (F9)** both encounter their highest delays at **TX: Dallas/Fort Worth International Airport**, averaging approximately **50 minutes**.
 
 These patterns reveal that **delay hotspots are airline-specific**. An airport that is highly problematic for one carrier may operate efficiently for another, underscoring the complex interactions between airline scheduling, airport capacity, and regional conditions.
 
 > **Key Insight:** Delay challenges are not uniform. Understanding the airline–airport combinations that generate the greatest delays is essential for targeted operational improvements.
 
-### Visualization
-
-- Grouped bar chart or table showing:
-  - Airline  
-  - Worst-performing airport  
-  - Average departure delay  
+### Visualization  
 
 ```{python}
 import pandas as pd
@@ -230,7 +225,7 @@ plt.show()
 
 ```
 
---- 
+*Notes. Grouped bar chart showing Airline on y axis, color-coded by Worst-performing airport, and the lengths of bar represent Average departure delay*
 
 # 3. Why Do Flights Get Cancelled?
 
@@ -239,7 +234,7 @@ plt.show()
 Yes.  
 Across all flights in December 2018, the dataset contains **6,752 cancelled flights**, indicating that cancellations were a non-negligible operational issue during this month.
 
----
+ 
 
 ## 3.2 Most Frequent Cancellation Reasons by Airport
 
@@ -329,7 +324,7 @@ plt.grid(axis="x", alpha=0.3)
 plt.show()
 ```
 
----
+ 
 
 # 4. Final Takeaways
 
@@ -346,7 +341,7 @@ These insights can help:
 - Airlines and airports identify operational bottlenecks  
 - Analysts and policymakers better understand seasonal flight patterns  
 
----
+ 
 
 # 5. Methods & Reproducibility
 
